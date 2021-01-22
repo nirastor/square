@@ -19,7 +19,7 @@ export default class Triangle {
   }
 
   calculate(params) {
-    const sides = params.slice(0, 3);
+    const sides = params.slice();
     sides.sort((a, b) => a - b);
 
     const a = sides[0];
