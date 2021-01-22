@@ -1,6 +1,5 @@
 export default class Circle {
   constructor() {
-    this.name = 'circle';
     this.nameForSelect = 'круг';
     this.numOfParams = 1;
     this.description = 'Введите радиус';

@@ -1,6 +1,5 @@
 export default class Triangle {
   constructor() {
-    this.name = 'triangle';
     this.nameForSelect = 'треугольник';
     this.numOfParams = 3;
     this.description = 'Введите три стороны треугольника';

@@ -12,25 +12,17 @@ import Result from './components/Result';
 export default class App extends React.Component {
   constructor() {
     super();
-    this.figures = [
-      new Circle(),
-      new Triangle(),
-    ];
+    this.figures = {
+      circle: new Circle(),
+      triangle: new Triangle(),
+    }
     this.state = {
-      selectedFigure: this.figures[0].name,
+      selectedFigure: 'circle',
       values: [''],
     }
     this.handleChangeFigure = this.handleChangeFigure.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.checkValues = this.checkValues.bind(this);
-  }
-
-  getFigure(figureName = this.state.selectedFigure) {
-    return this.figures.find((figure) => figure.name === figureName);
-  }
-  
-  getNumberOfInputs(figureName = this.state.selectedFigure) {
-    return this.getFigure(figureName).numOfParams;
   }
 
   checkValues() {
@@ -50,11 +42,10 @@ export default class App extends React.Component {
   */
   handleChangeFigure(e) {
     const newFigure = e.target.value;
-    const newValues = new Array(this.getNumberOfInputs(newFigure));
+    const newValues = new Array(this.figures[newFigure].numOfParams);
     this.setState({
       selectedFigure: newFigure,
       values: newValues,
-
     });
   }
 
@@ -73,11 +64,11 @@ export default class App extends React.Component {
       <div className="column">
         <Select
           figures={this.figures}
-          value={this.state.value}
+          value={this.state.selectedFigure}
           handleChangeFigure={this.handleChangeFigure}
         />
         <Inputs 
-          figure={this.getFigure()}
+          figure={this.figures[this.state.selectedFigure]}
           selectedFigure={this.state.selectedFigure}
           values={this.state.values}
           onChange={this.handleInput}
@@ -85,7 +76,7 @@ export default class App extends React.Component {
         />
         {this.checkValues() &&
           <Result
-            result={this.getFigure().calculate(this.state.values.map((i) => Number(i)))}
+            result={this.figures[this.state.selectedFigure].calculate(this.state.values.map((i) => Number(i)))}
           />
         }
       </div>

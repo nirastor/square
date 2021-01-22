@@ -1,11 +1,13 @@
 export default function Select(props) {
   const value = props.value;
   const handleChangeFigure = props.handleChangeFigure;
-  
   const figures = props.figures;
-  const options = figures.map((figure) =>
-    <option value={figure.name} key={figure.name}>{figure.nameForSelect}</option>
-);
+  const options = [];
+  for (let figureKey in figures) {
+    options.push(
+      <option value={figureKey} key={figureKey}>{figures[figureKey].nameForSelect}</option>
+    );
+  }    
   
   return (
     <select
