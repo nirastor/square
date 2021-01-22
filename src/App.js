@@ -58,18 +58,14 @@ export default class App extends React.Component {
     });
   }
 
-  /* 
-    Переделать сетСтейт на стрелку
-  */
   handleInput(e) {
-    const id = e.target.id;
-    const value = e.target.value;
-    const newValues = this.state.values.slice();
-    newValues[id] = value;
-    this.setState({
-      values: newValues,
+    this.setState((state) => {
+      const id = e.target.id;
+      const value = e.target.value;
+      const newValues = state.values.slice();
+      newValues[id] = value;
+      return {values: newValues};
     });
-
   }
 
   render() {   
