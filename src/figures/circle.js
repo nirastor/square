@@ -3,7 +3,7 @@ export default class Circle {
     this.name = 'circle';
     this.nameForSelect = 'круг';
     this.numOfParams = 1;
-    this.description = 'Введите три стороны треугольника';
+    this.description = 'Введите длинну окружности';
   }
 
   calculate(params) {

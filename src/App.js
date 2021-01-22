@@ -116,12 +116,14 @@ export default class App extends React.Component {
   
   render() {
     /*
-      Три кандидата на то чтобы стать отдельными комопонентами
+      Четыре кандидата на то чтобы стать отдельными комопонентами
+      (Возможно три: т.к. опсиание стоит объеденить с полями ввода, т.к. оно логично относится к ним)
       Но пока делаю без передачи состояния
     */
     const options = this.createOptionsList();
     const inputs = this.createInputsList();
     const result = this.createResult();
+    const description = this.getFigure().description;
         
     return (
       <React.Fragment>
@@ -131,7 +133,7 @@ export default class App extends React.Component {
           onInput={this.handleChangeFigure}>
             {options}
         </select>
-        <div>Выбран: {this.state.selectedFigure}</div>
+        <div>{description}</div>
         <div>{inputs}</div>
         <div>{result}</div>
       </React.Fragment>

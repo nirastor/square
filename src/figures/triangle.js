@@ -3,7 +3,7 @@ export default class Triangle {
     this.name = 'triangle';
     this.nameForSelect = 'треугольник';
     this.numOfParams = 3;
-    this.description = 'Введите длинну окружности';
+    this.description = 'Введите три стороны треугольника';
   }
 
   /*
