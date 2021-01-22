@@ -2,6 +2,7 @@ import React from 'react';
 
 import Circle from './figures/circle';
 import Triangle from './figures/triangle';
+import Select from './FigureSelect';
 
 export default class App extends React.Component {
   constructor() {
@@ -59,12 +60,6 @@ export default class App extends React.Component {
 
   }
 
-  createOptionsList() {
-    return this.figures.map((figure) =>
-      <option value={figure.name} key={figure.name}>{figure.nameForSelect}</option>
-    );
-  }
-
   /*
     Каждый инпут сам по себе -- кандидат на то, чтобы стать отдельным компонентом
     Или нет?
@@ -73,7 +68,7 @@ export default class App extends React.Component {
     const inputs = [];
     for (let i = 0; i < this.getNumberOfInputs(); i += 1) {
       inputs.push(
-        <input type="text" key={this.state.selectedFigure + i} id={i} value={this.state.values[i]} onChange={this.handleInput}/>
+        <input className="inputs-input" type="text" key={this.state.selectedFigure + i} id={i} value={this.state.values[i]} onChange={this.handleInput}/>
         /*
           Фигура + индекс в ключе используютсядля того чтобы при смене фигуры поля были новыми
         
@@ -120,23 +115,23 @@ export default class App extends React.Component {
       (Возможно три: т.к. опсиание стоит объеденить с полями ввода, т.к. оно логично относится к ним)
       Но пока делаю без передачи состояния
     */
-    const options = this.createOptionsList();
     const inputs = this.createInputsList();
     const result = this.createResult();
     const description = this.getFigure().description;
         
     return (
-      <React.Fragment>
-        <select
-          name="select"
-          value={this.state.value}
-          onInput={this.handleChangeFigure}>
-            {options}
-        </select>
-        <div>{description}</div>
-        <div>{inputs}</div>
-        <div>{result}</div>
-      </React.Fragment>
+      <div className="column">
+        <div className="block">
+          <Select
+            figures={this.figures}
+            value={this.state.value}
+            handleChangeFigure={this.handleChangeFigure}
+          />
+          <div>{description}</div>
+          <div>{inputs}</div>
+          <div>{result}</div>
+        </div>
+      </div>
     );
   }
 }
