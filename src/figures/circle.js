@@ -3,14 +3,14 @@ export default class Circle {
     this.name = 'circle';
     this.nameForSelect = 'круг';
     this.numOfParams = 1;
-    this.description = 'Введите длинну окружности';
+    this.description = 'Введите радиус';
   }
 
   calculate(params) {
-    const length = params[0];
+    const radius = params[0];
     return {
       result: {
-        square: length * length / 4 * Math.PI,
+        square: Math.PI * radius * radius,
       },
       err: false
     };
