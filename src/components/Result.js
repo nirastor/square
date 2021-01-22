@@ -1,7 +1,7 @@
 export default function Result(props) {  
   if (props.result.err) {
     return (
-      <div className="result-error">props.result.err</div>
+      <div className="result-error">{props.result.err}</div>
     );
   }
 
