@@ -1,6 +1,4 @@
 export default function Select(props) {
-  const value = props.value;
-  const handleChangeFigure = props.handleChangeFigure;
   const figures = props.figures;
   const options = [];
   for (let figureKey in figures) {
@@ -12,8 +10,8 @@ export default function Select(props) {
   return (
     <select
       name="select"
-      value={value}
-      onInput={handleChangeFigure}>
+      value={props.value}
+      onInput={props.handleChangeFigure}>
         {options}
     </select>
   );

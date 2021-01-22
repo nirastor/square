@@ -14,7 +14,7 @@ export default function Input(props) {
   }
 
   return (
-    <div>
+    <div className="inputs">
       <div className="inputs-description">{props.figure.description}</div>
       <div className="inputs-inputs-list">
         {inputs}
