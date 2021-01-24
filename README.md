@@ -1,4 +1,10 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/7kvaf5fpi9gb8ufd/branch/master?svg=true)](https://ci.appveyor.com/project/nirastor/square/branch/master)
+***
+
 # Square
+
+## Демо
+https://nirastor.github.io/square/
 
 ## ТЗ
 Написать приложение на React, которое умеет вычислять площадь круга по радиусу и треугольника по трем сторонам. 
